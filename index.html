@@ -1,0 +1,178 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="select-button">upload</button>
+    <input type="file" id="file-input" multiple style="display:flex;" />
+    <button id="list-button">List files</button>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="file" id="file-input">
+        <button id="preview-button">Preview</button>
+      </form>
+      <div id="preview-container"></div>    
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name=f1 method=post enctype="multipart/form-data">
+        <input id="uploadPDF" type="file" name="file"/>&nbsp;
+        <input type="button" value="Preview" onclick="PreviewImage();" />
+    
+        <div style="clear:both">
+           <iframe id="viewer" frameborder="0" scrolling="no" width="300" height="200"></iframe>
+        </div>
+        <button type="submit" name="submit" class="btn btn-success btn-sm">
+          <i class="fa fa-dot-circle-o"></i> Add
+        </button>&emsp;
+    </form>
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.3.0/pdf.min.js"></script>
+</head>
+<body>
+    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+<h1>PDF.js Previous/Next example</h1>
+
+<input type="file" id="file-input">
+<div>
+  <button id="prev">Previous</button>
+  <button id="next">Next</button>
+  &nbsp; &nbsp;
+  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+</div>
+
+<canvas id="the-canvas"></canvas>
+</body>
+</html>
+<script> function previewPDF(event) {
+    const file = event.target.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.onload = function() {
+      const typedarray = new Uint8Array(this.result);
+      PDFJS.getDocument(typedarray).then(function(pdf) {
+        renderPDF(pdf);
+      });
+    };
+
+    fileReader.readAsArrayBuffer(file);
+  }
+
+  function renderPDF(pdf) {
+    let pageNum = 1;
+    pdf.getPage(pageNum).then(function(page) {
+      const viewport = page.getViewport({scale: 1.0});
+      const canvas = document.getElementById('pdf-canvas');
+      const context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+      page.render(renderContext);
+    });
+  }</script> -->
+
+
+  <!-- <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+<input type="file" id="myPdf" /><br>
+<canvas id="pdfViewer"></canvas>
+  </body>
+  </html> -->
+
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Preview File Before Upload</title>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <style type="text/css">
+          .preview-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              width: 50%;
+              border: 1px solid #ccc;
+              margin: 10px;
+              overflow: hidden;
+          }
+          .preview-image {
+              max-width: 100%;
+              max-height: 100%;
+
+          }
+
+          #pdf-viewer {
+  overflow-y: auto;
+  height: 400px;
+}
+
+      </style>
+  </head>
+  <body>
+      <h1>Preview File Before Upload</h1>
+      <form>
+          <label for="file">Select a file to upload:</label>
+          <input type="file" id="file" name="file" accept=".pdf, .jpg, .jpeg, .png" onchange="previewFile()">
+      </form>
+      <div class="preview-container" id="pdf-viewer">
+          <img class="preview-image" alt="Preview">
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+
+      <script src="index.js"></script>
+  </body>
+  </html>
+  
